@@ -1,0 +1,501 @@
+$colors:(
+    primary: #89cff0,
+    darkprimary:#5cbdea,
+    secondary: #f5e9dc,
+    accent:#aec6cf,
+    accent2:white, 
+    );
+@function color($color-name){
+    @return map-get($colors,$color-name)
+};
+
+$padding:15px;
+$borders:15px;
+$desktop:840px;
+$mobile:380px;
+@mixin desktop{
+    @media(min-width: #{$desktop}) {
+        @content;
+    }
+}
+@mixin mobile{
+    @media(max-width: #{$mobile}) {
+        @content;
+    }
+}
+body,html{
+    height:100%;
+    overflow:auto;
+}
+/*Page2*/
+#main{
+    display: none;
+}
+/*Page1*/
+.page1{
+    margin:0;
+    width:100%;
+    height:100%;
+    display:block;
+    background: color(secondary);
+    background-image:url(style/image/stars_trans2.png);
+    position:absolute;
+    z-index: 0 ;
+    #page1Ciircle{
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        width:100%;
+        height:100%;
+        clip-path: circle(50% at 50% 109%);
+        background-color:color(primary);
+        box-shadow:inset 0 0 100px white;   
+        position:absolute;
+        z-index:-1;
+
+        @include desktop{
+            clip-path: circle(55.7% at 79% 27%);
+            background-image:url(style/image/stars_trans2.png);
+        
+        }
+    }  
+    #pg1content1{
+        color: color(accent);
+        text-shadow: 2px 2px color(accent2);
+        font-size: 30px;
+        font-weight: bold;
+        font-family: sans-serif;
+        text-align: center;
+        margin-top:50%;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+
+        @include desktop{
+            font-size: 50px;
+            padding:$padding;
+            text-align: left;
+            margin-left:20px;
+            margin-top:10%;
+            
+        }
+    }   
+    #pg1content2{
+        color: color(accent2);
+        font-size: 30px;
+        font-family: 'Dancing Script', cursive;
+        text-align: center;
+        text-shadow: 2px 2px color(accent);
+
+        @include desktop{
+            font-size: 50px;
+            padding:$padding;
+            text-align: left;
+            margin-left:20px;
+        }
+    }    
+    #pg1content3{
+        color: color(secondary);
+        font-size: 15px;
+        font-weight: bold;
+        font-family: sans-serif;
+        text-align: center;
+        margin-top:60%;
+        padding-bottom:80px;
+
+        @include desktop{
+            font-size: 30px;
+        }
+    }
+    /*Enter Button*/
+    .example_b {
+        color:color(accent) !important;
+        text-transform: uppercase;
+        background:color(accent2);
+        padding: 20px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        margin-top: 30%;
+        opacity:0.8;
+
+        @include desktop{
+            margin-top:10%;
+            border-radius: 100px;
+            padding-left: 150px;
+            padding-right: 150px;
+            font-size: 20px;
+        }
+        }
+    .example_b:hover {
+        text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.4s ease 0s;
+    }
+
+
+}
+/*Windmill animations*/
+.windmill{
+    margin-left:50%;
+    margin-top:25%;
+    position:absolute;
+
+    @include desktop{
+    margin-left:530px;
+    margin-top:13%;
+    }
+    .dome{
+        display:block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        transform-origin: 0 100%;        
+        transform: rotate(45deg);
+        overflow:hidden;
+        position:absolute;
+    }
+    .fan{
+        background-color:color(accent);
+        width:10px;
+        height:10px;
+        border-radius:100%;
+        margin-left:110%;
+        margin-top:25%;
+        animation-name:rotate_fan;
+        animation-duration:6s;
+        animation-iteration-count:infinite;
+        position:absolute;
+        @include desktop{
+            background-color:color(accent2);
+                }
+            
+    }
+    .fan_blade1, .fan_blade2, .fan_blade3, .fan_blade4{
+        width:2px;
+        height:60px;
+        margin-left:35px;
+        margin-top:-28px;
+        transform:rotate(90deg);
+        position:absolute;
+    }
+    .fan_blade2{
+        transform:rotate(180deg);
+        margin-left:1px;
+        margin-top:5px;
+    }
+    .fan_blade3{
+        transform:rotate(360deg);
+        margin-left:3px;
+        margin-top:-60px;
+    }
+    .fan_blade4{
+        transform:rotate(270deg);
+        margin-top:-28px;
+        margin-left:-30px;
+    }
+    .fan_blade1::before{
+        content:"";
+        width: 0;
+        height: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(accent);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+        @include desktop{
+              box-shadow: 15px 15px 0 0 color(accent2);
+              opacity:0.8;
+            }
+    }
+    .fan_blade2::before{
+        content:"";
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(primary);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+        @include desktop{
+            box-shadow: 15px 15px 0 0 color(darkprimary);
+            opacity:0.8;
+            }
+    }
+    .fan_blade3::before{
+        content:"";
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(primary);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+        @include desktop{
+            box-shadow: 15px 15px 0 0 color(primary);
+            }
+    }
+    .fan_blade4::before{
+        content:"";
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(accent2);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+        @include desktop{
+            box-shadow: 15px 15px 0 0 color(secondary);
+            opacity:0.8;
+            }
+    }
+    @keyframes rotate_fan{
+        from{}
+        to{transform:rotate(360deg);}
+        }
+}
+
+.windmill2{
+    margin-left:80%;
+    margin-top:25%;
+    position:absolute;
+
+    @include mobile{
+        display:none;
+    }
+    .dome2{
+        display:block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        transform-origin: 0 100%;        
+        transform: rotate(45deg);
+        overflow:hidden;
+        position:absolute;
+    }
+    .fan2{
+        background-color:color(accent2);
+        width:10px;
+        height:10px;
+        border-radius:100%;
+        margin-left:110%;
+        margin-top:25%;
+        animation-name:rotate_fan;
+        animation-duration:4s;
+        animation-iteration-count:infinite;
+        position:absolute;
+    }
+    .fan_blade12, .fan_blade22, .fan_blade32, .fan_blade42{
+        width:6px;
+        height:60px;
+        margin-left:35px;
+        margin-top:-28px;
+        transform:rotate(90deg);
+        position:absolute;
+    }
+    .fan_blade22{
+        transform:rotate(180deg);
+        margin-left:1px;
+        margin-top:5px;
+    }
+    .fan_blade32{
+        transform:rotate(360deg);
+        margin-left:3px;
+        margin-top:-60px;
+    }
+    .fan_blade42{
+        transform:rotate(270deg);
+        margin-top:-28px;
+        margin-left:-30px;
+    }
+    .fan_blade12::before{
+        content:"";
+        width: 0;
+        height: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(accent);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+    }
+    .fan_blade22::before{
+        content:"";
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(secondary);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+    }
+    .fan_blade32::before{
+        content:"";
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(darkprimary);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+    }
+    .fan_blade42::before{
+        content:"";
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 15px 15px 0 0 color(accent2);
+        margin-left:5px;
+        background-size: 10px 11px;
+        position:absolute;
+    }
+    @keyframes rotate_fan{
+        from{}
+        to{transform:rotate(360deg);}
+        }
+}
+/*NavBar*/
+#myHeader{
+    background: color(accent);
+    font-family: sans-serif;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    @include desktop{
+        font-size: 20px;
+        }
+    #navbarTitle{
+        color:color(accent2);
+        padding:$padding;
+        font-family: 'Dancing Script', cursive;
+        font-size:25px;
+        text-shadow: 2px 2px color(accent);
+    }
+    #navbarItem{
+        color:color(accent2);
+        padding:$padding;
+    }
+  } 
+/*Page2 contents*/
+#SNS{
+    text-align: center;
+
+    .sns a{
+        padding:$padding;
+        text-align: center;
+        color: color(accent2);
+        @include desktop{
+            text-align: left;
+         
+
+        }
+        i{
+         font-size:70px;
+        }
+    }    
+}   
+
+#about{
+    box-shadow:inset 0 0 100px color(secondary);  
+    
+    @include desktop{
+        margin:20px;
+        margin-top:100px;
+        img{
+            float:left;
+            max-width: 300px;
+            max-height:300px;
+            padding:$padding;
+            position:relative;
+            -webkit-box-shadow: 0px 5px 40px -10px color(accent(0,0,0,0.57));
+            -moz-box-shadow: 0px 5px 40px -10px color(accent(0,0,0,0.57));
+        }
+    }
+
+    #introBody{
+        color:color(accent2); 
+
+        @include desktop{
+            float:left;
+            margin-left:0px;
+            margin-right:0px;
+        }
+        h4{
+            padding-top:20px;
+            color:color(accent);
+        }
+    }
+}
+
+#portfolio{
+    margin:25px;
+    @include mobile{
+        margin:auto;
+    }
+}
+
+#skills{
+    /*background: color(accent);*/
+    box-shadow:inset 0 0 100px color(accent2);   
+    color:color(accent2);
+    font-size:18px;
+    text-align:left;
+    padding-left:30%;
+    padding-bottom:10%;
+
+    #top{
+        font-family: 'Dancing Script', cursive;
+        color:color(accent);
+        font-size:20px;
+        margin-top: 20px;
+        margin-left:0;
+        
+    }
+    @include desktop{
+        font-size:20px;
+        ul{
+            float:left;
+            margin-left:30px;
+            margin-right: 30px;
+            #top{
+                font-size:24px;
+            }
+        }
+
+    }
+}
+
+#resume{
+    text-align: center;
+    @include desktop{
+        a i{
+            font-size: 60px;
+            color:color(primary);
+
+        }
+    }
+}
+/*Page2 section titles*/
+.title{
+    color: color(accent);
+    text-align:center;
+    @include desktop{
+        font-size: 20px;
+    }
+}
+/*not working for some reason*/
+#footer{
+    background: color(accent);
+    box-shadow:inset 0 0 100px color(darkprimary);   
+    color:color(secondary);
+    font-size:20px;
+    text-align:center;
+    padding:$padding;
+    padding-top:10%;
+}
