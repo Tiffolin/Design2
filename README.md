@@ -16,19 +16,17 @@ https://tiffolin.github.io/Design2/
 * SASS
 
 ### Demo
-The webpage is mobile responsive
+A webpage with spinning windmills in the background.
 
 ![](appScreenshots/1.PNG)      
 
 
- 
-![](appScreenshots/2.PNG)      
-
-
 ![](appScreenshots/3.PNG)      
 
+The webpage is mobile responsive
 
- 
+![](appScreenshots/2.PNG)   
+
 ![](appScreenshots/4.PNG) 
  
 
