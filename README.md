@@ -21,8 +21,11 @@ A webpage with spinning windmills in the background.
 ![](appScreenshots/1.PNG)      
 
 
+---
 ![](appScreenshots/3.PNG)      
 
+
+---
 The webpage is mobile responsive
 
 ![](appScreenshots/2.PNG)   
