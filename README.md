@@ -34,6 +34,8 @@ The webpage is mobile responsive
  
 
 
+---
+
 ## Authors
 * **Tiffany Lin**         [Tiffolin](https://github.com/Tiffolin)
 
